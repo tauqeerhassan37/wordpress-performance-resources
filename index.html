@@ -1,0 +1,447 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>WordPress Performance Resources | Website Speed Guide</title>
+
+    <meta name="description"
+          content="A practical guide to WordPress performance, website speed optimization, Core Web Vitals, caching, images, plugins, hosting, and ongoing maintenance.">
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #172033;
+            --text: #334155;
+            --light: #f8fafc;
+            --border: #e2e8f0;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.7;
+            color: var(--text);
+            background: var(--light);
+        }
+
+        header {
+            background: linear-gradient(135deg, #172033, #2563eb);
+            color: var(--white);
+            padding: 70px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0 auto 20px;
+            max-width: 900px;
+            font-size: 42px;
+            line-height: 1.2;
+        }
+
+        header p {
+            max-width: 760px;
+            margin: auto;
+            font-size: 18px;
+            opacity: 0.95;
+        }
+
+        nav {
+            background: var(--white);
+            border-bottom: 1px solid var(--border);
+            padding: 15px 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            margin: 0 12px;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 950px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: var(--white);
+            margin-bottom: 28px;
+            padding: 35px;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        h2 {
+            color: var(--dark);
+            margin-top: 0;
+            font-size: 28px;
+        }
+
+        h3 {
+            color: var(--dark);
+            font-size: 21px;
+        }
+
+        a {
+            color: var(--primary);
+        }
+
+        ul {
+            padding-left: 25px;
+        }
+
+        .tip {
+            background: #eff6ff;
+            border-left: 5px solid var(--primary);
+            padding: 18px 20px;
+            margin: 25px 0;
+        }
+
+        footer {
+            background: var(--dark);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        footer a {
+            color: #93c5fd;
+        }
+
+        @media (max-width: 700px) {
+            header h1 {
+                font-size: 32px;
+            }
+
+            section {
+                padding: 25px 20px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>WordPress Performance Resources</h1>
+    <p>
+        A practical guide to improving WordPress website speed,
+        performance, usability, and long-term reliability.
+    </p>
+</header>
+
+<nav>
+    <a href="#introduction">Introduction</a>
+    <a href="#speed">Speed</a>
+    <a href="#images">Images</a>
+    <a href="#caching">Caching</a>
+    <a href="#plugins">Plugins</a>
+    <a href="#maintenance">Maintenance</a>
+</nav>
+
+<main>
+
+<section id="introduction">
+    <h2>Why WordPress Performance Matters</h2>
+
+    <p>
+        Website performance is an important part of creating a positive
+        online experience. Visitors expect pages to load quickly, content
+        to be easy to access, and websites to work smoothly across desktop
+        and mobile devices. A slow website can make navigation frustrating
+        and may reduce the number of visitors who continue browsing.
+    </p>
+
+    <p>
+        WordPress is a flexible content management system used for blogs,
+        company websites, online stores, membership platforms, and many
+        other digital projects. Its flexibility also means that performance
+        can be affected by themes, plugins, hosting, images, scripts,
+        databases, and third-party integrations.
+    </p>
+
+    <p>
+        The goal of optimization is not simply to achieve a particular
+        speed score. A well-optimized website should provide a consistently
+        fast and useful experience for real visitors while remaining
+        maintainable as the website grows.
+    </p>
+</section>
+
+<section id="speed">
+    <h2>Start With Website Speed Testing</h2>
+
+    <p>
+        Before making changes, measure the website's current performance.
+        Testing provides a baseline that can help identify the largest
+        problems and determine whether an optimization actually improved
+        the website.
+    </p>
+
+    <p>
+        Useful performance testing can examine loading behavior, page
+        resources, server response times, image sizes, JavaScript,
+        CSS, and other technical factors. Test important pages rather than
+        checking only the homepage.
+    </p>
+
+    <div class="tip">
+        <strong>Tip:</strong> Test several representative pages, including
+        the homepage, an important landing page, a blog article, and
+        product or checkout pages if the website uses WooCommerce.
+    </div>
+</section>
+
+<section id="images">
+    <h2>Optimize Images and Media</h2>
+
+    <p>
+        Images are often responsible for a significant portion of a
+        webpage's total size. Large photographs uploaded directly from a
+        camera or design application may contain far more data than a
+        website actually needs.
+    </p>
+
+    <h3>Practical image optimization</h3>
+
+    <ul>
+        <li>Resize images to appropriate display dimensions.</li>
+        <li>Use modern image formats when appropriate.</li>
+        <li>Compress images without unnecessary quality loss.</li>
+        <li>Use responsive images for different screen sizes.</li>
+        <li>Lazy-load images that are below the initial viewport.</li>
+        <li>Avoid uploading unnecessarily large media files.</li>
+    </ul>
+
+    <p>
+        Image optimization should preserve the visual quality that users
+        need while reducing unnecessary file size. This can improve page
+        loading and reduce bandwidth consumption.
+    </p>
+</section>
+
+<section id="caching">
+    <h2>Use Effective Caching</h2>
+
+    <p>
+        Caching can reduce the amount of work required to generate pages
+        repeatedly. Instead of rebuilding every part of a page for every
+        visitor, cached resources can sometimes be served more efficiently.
+    </p>
+
+    <p>
+        Depending on the hosting environment, a WordPress website may use
+        page caching, browser caching, object caching, or a content
+        delivery network. The best configuration depends on the website's
+        architecture and the type of content it provides.
+    </p>
+
+    <p>
+        Caching should also be configured carefully. Dynamic pages such as
+        shopping carts, account areas, and checkout pages may require
+        different rules from ordinary informational pages.
+    </p>
+</section>
+
+<section id="plugins">
+    <h2>Review Themes and Plugins</h2>
+
+    <p>
+        WordPress plugins provide valuable functionality, but every
+        additional component can introduce code, database queries,
+        JavaScript, CSS, or external requests. Installing plugins without
+        reviewing their purpose can gradually make a website harder to
+        maintain.
+    </p>
+
+    <p>
+        Review installed plugins periodically and remove components that
+        are no longer needed. Keep active plugins, themes, and WordPress
+        itself updated according to a sensible maintenance process.
+    </p>
+
+    <p>
+        A lightweight theme and carefully selected plugins can provide a
+        strong foundation for performance. However, plugin count alone
+        does not determine speed; implementation quality and the work
+        performed by each component are more important.
+    </p>
+</section>
+
+<section>
+    <h2>Improve Hosting and Server Performance</h2>
+
+    <p>
+        Website optimization is not limited to WordPress itself. Hosting
+        infrastructure can affect server response time, resource
+        availability, database performance, and the ability to handle
+        traffic.
+    </p>
+
+    <p>
+        When a website consistently experiences slow server responses,
+        administrators should investigate hosting resources, PHP
+        configuration, database performance, caching, traffic levels,
+        and other server-side factors.
+    </p>
+
+    <p>
+        A suitable hosting environment should match the website's actual
+        requirements. A small informational website and a busy WooCommerce
+        store may need very different infrastructure.
+    </p>
+</section>
+
+<section>
+    <h2>Consider Core Web Vitals</h2>
+
+    <p>
+        Core Web Vitals provide useful measurements related to loading,
+        responsiveness, and visual stability. They can help developers
+        understand aspects of the real user experience that traditional
+        page-load measurements may not fully describe.
+    </p>
+
+    <p>
+        Performance work should focus on the underlying causes of poor
+        results rather than attempting to manipulate a single score.
+        Reducing unnecessary resources, improving server response,
+        optimizing images, and creating stable page layouts can all
+        contribute to a better experience.
+    </p>
+</section>
+
+<section id="maintenance">
+    <h2>Ongoing WordPress Maintenance</h2>
+
+    <p>
+        Performance optimization is an ongoing process. Websites change
+        over time as new plugins are installed, content is published,
+        tracking tools are added, and functionality evolves.
+    </p>
+
+    <p>
+        Regular maintenance should include backups, updates, security
+        checks, performance testing, broken-link reviews, database
+        maintenance, and monitoring for unexpected changes.
+    </p>
+
+    <p>
+        Keeping a record of performance tests can also help identify
+        gradual problems. If a website becomes slower after a major
+        update, developers can compare results and investigate what
+        changed.
+    </p>
+</section>
+
+<section>
+    <h2>Professional WordPress Development</h2>
+
+    <p>
+        Some performance problems require more than basic configuration.
+        Custom development may be appropriate when a website has complex
+        functionality, custom integrations, WooCommerce requirements,
+        specialized plugins, or unusual performance bottlenecks.
+    </p>
+
+    <p>
+        Dev Mechanix provides WordPress development and related digital
+        services, including website performance optimization, custom
+        plugin development, WooCommerce solutions, migrations,
+        maintenance, and AI-powered development.
+    </p>
+
+    <p>
+        Learn more about
+        <a href="https://devmechanix.com/">
+            Dev Mechanix WordPress development services
+        </a>
+        if you need professional assistance with a WordPress project.
+    </p>
+</section>
+
+<section>
+    <h2>WordPress Performance Checklist</h2>
+
+    <ul>
+        <li>Test important pages regularly.</li>
+        <li>Optimize large images and media files.</li>
+        <li>Review unnecessary plugins and themes.</li>
+        <li>Keep WordPress components updated.</li>
+        <li>Configure appropriate caching.</li>
+        <li>Monitor server response times.</li>
+        <li>Review database performance when necessary.</li>
+        <li>Use responsive and mobile-friendly layouts.</li>
+        <li>Monitor Core Web Vitals and real-user performance.</li>
+        <li>Maintain reliable backups and security procedures.</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Conclusion</h2>
+
+    <p>
+        A fast WordPress website is the result of multiple good decisions
+        working together. Hosting, themes, plugins, images, caching,
+        databases, scripts, and custom functionality can all influence
+        performance.
+    </p>
+
+    <p>
+        The best optimization strategy starts with measurement, identifies
+        the most important bottlenecks, applies targeted improvements, and
+        continues monitoring after changes are made. This approach is more
+        sustainable than relying on a single optimization technique.
+    </p>
+
+    <p>
+        Whether you manage a personal blog, business website, or
+        WooCommerce store, maintaining performance can help provide
+        visitors with a faster, smoother, and more reliable experience.
+    </p>
+</section>
+
+</main>
+
+<footer>
+    <p>
+        WordPress Performance Resources
+    </p>
+
+    <p>
+        Created as an educational resource for WordPress developers and
+        website owners.
+    </p>
+
+    <p>
+        <a href="https://devmechanix.com/">
+            Visit Dev Mechanix
+        </a>
+    </p>
+</footer>
+
+</body>
+</html>
+```
